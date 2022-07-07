@@ -1,7 +1,11 @@
 on:
+  push:
+    branches:
+      - feature/*
   pull_request:
     branches:
-      - master
+      - main
+      - feature/*
 
 jobs:
   build_test_job:
@@ -9,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
         matrix:
-          os: [windows-latest, ubuntu-latest, macos-latest]
+          os: [ ubuntu-latest ]
     steps:
 
     - name: 'Checking out repo code'
